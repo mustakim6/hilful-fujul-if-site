@@ -22,6 +22,7 @@ const Navbar = () => {
    const [menuClose, setMenuClose] = useState(true)
 
 
+
 // navbar links are here as an array of object
   const links = [
     { to: "/", linkName: "Home", linkIcon:<FaHome /> },
@@ -35,21 +36,25 @@ const Navbar = () => {
 
 
   return (
-    <nav className=" py-4 bg-navBarBgColor relative flex items-center justify-around hover:border-b-2 border-gray-300">
+
+    <nav className=" py-1 bg-navBarBgColor relative flex items-center justify-evenly
+     border-b-2 border-gray-300">
 
 {/* logo */}
- <div className=" md:flex gap-1 border-3 max-w-fit items-center">
+ <div className=" flex gap-1 max-w-fit items-center">
     <div
      className=" mx-1 bg-activeNavlinkColor p-2 rounded-full text-white font-semibold max-w-fit">
       HFIF
     </div>
-    <h2 className="font-bold "> 
+    <h2 className="font-bold grow"> 
     Hilful Fujul Islami Foundation</h2>
    </div>
 
-{/* navlinks */}
-      <ul className={`absolute top-600 md:top-0 bg-amber-300`}>
-        {links.map((link) => (
+{/* navlinks  for mobile device*/}
+      <ul className={`absolute ${menuClose? '-top-400': 'top-20 right-[30%] transition-all duration-700 ' }    bg-[#F4F9F7] rounded-md w-60 flex shadow-2xl `}>
+
+        <div className=" mx-auto font-medium">
+            {links.map((link) => (
           <li key={link.to} className="max-w-fit my-2  ">
 
             <NavLink
@@ -65,20 +70,44 @@ const Navbar = () => {
 
           </li>
         ))}
+        </div>
+      </ul>
+
+{/* navlinks  for large device */}
+      <ul className=' hidden md:block'>
+
+        <div className=" flex gap-4 font-medium">
+            {links.map((link) => (
+          <li key={link.to} className="max-w-fit my-2  ">
+
+            <NavLink
+              to={link.to}
+              className={({ isActive }) =>
+                `  flex gap-1 rounded-xl px-1 py-2 items-center transition-all duration-450  ${isActive ? "text-white bg-activeNavlinkColor " : "hover:bg-navHoverColor"}`
+              }
+            >
+
+             {link.linkIcon} {link.linkName}
+             
+            </NavLink>
+
+          </li>
+        ))}
+        </div>
       </ul>
 
 {/* theme and language toggle */}
         <div className="flex gap-4">
             {/* theme toggle */}
             <div 
-            className=" cursor-pointer border-3 max-w-fit text-3xl  "
+            className=" cursor-pointer border border-slate-400 p-1 rounded-xl hover:shadow-[0px_0px_6px_1px_#0E6B4F] max-w-fit text-3xl transition-all duration-500 "
             onClick={()=>setIsLight(prev=>!prev)}>
                 {isLight? <MdDarkMode /> : <MdLightMode />}
             </div>
 
             {/* language toggle */}
             <div 
-            className="cursor-pointer border-3 max-w-fit text-2xl font-bold "
+            className="cursor-pointer border border-slate-400 p-1 rounded-xl max-w-fit text-2xl font-bold  hover:shadow-[0px_0px_6px_1px_#0E6B4F] transition-all duration-500"
             onClick={()=>setIsEn(prev=>!prev)}>
                 {isEn? "BN" : "EN"}
             </div>
@@ -86,7 +115,7 @@ const Navbar = () => {
 
 {/* hamburger menu */}
 
-<div className=" text-3xl ml-2 border-3"
+<div className="md:hidden text-3xl ml-2 "
 onClick={()=>setMenuClose(prev=>!prev)}>
     {menuClose? <ImMenu />: <GrClose />}
 </div>
