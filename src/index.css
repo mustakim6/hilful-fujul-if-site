@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@theme{
+    --color-textColor:#12211C;
+    --color-navHoverColor:#E9F5F2;
+    --color-activeNavlinkColor:#0E6B4F;/*#20C997*/
+    --color-navBarBgColor:#FDFEFD ;/*#1C2E27*/
+    --color-accendColor:#D4AF37 ;
+
+    --color-background:#f6f9f7 ;
+    /* --color-darkBackground:#101e19 ; */
+   
+    --font-inter:"Inter", 'sans-serif';
+
+}
