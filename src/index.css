@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 @import "tailwindcss";
 @plugin "daisyui";
+
 
 
 @theme{
@@ -14,6 +15,11 @@
     --color-background:#f6f9f7 ;
     /* --color-darkBackground:#101e19 ; */
    
-    --font-inter:"Inter", 'sans-serif';
+    --font-forBodyText:"Source Sans 3", 'sans-serif';
+    --font-forHeading:"Playfair Display";
 
+}
+
+:root{
+    background-color: #f6f9f7;
 }

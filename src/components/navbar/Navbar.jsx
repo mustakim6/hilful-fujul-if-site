@@ -38,12 +38,12 @@ const Navbar = () => {
   return (
 
     <nav className=" py-1 bg-navBarBgColor relative flex items-center justify-evenly
-     border-b-2 border-gray-300">
+     border-b-2 border-gray-300 font-forBodyText text-md">
 
 {/* logo */}
  <div className=" flex gap-1 max-w-fit items-center">
     <div
-     className=" mx-1 bg-activeNavlinkColor p-2 rounded-full text-white font-semibold max-w-fit">
+     className=" mx-1 bg-activeNavlinkColor p-2 rounded-full text-white  font-semibold max-w-fit">
       HFIF
     </div>
     <h2 className="font-bold grow"> 
@@ -51,16 +51,17 @@ const Navbar = () => {
    </div>
 
 {/* navlinks  for mobile device*/}
-      <ul className={`absolute ${menuClose? '-top-400': 'top-20 right-[30%] transition-all duration-700 ' }    bg-[#F4F9F7] rounded-md w-60 flex shadow-2xl `}>
+      <ul className={`absolute ${menuClose? '-top-400': 'top-16 right-[30%] transition-all duration-700 ' }    bg-[#F4F9F7] rounded-md w-60 flex shadow-2xl `}>
 
-        <div className=" mx-auto font-medium">
+        <div className=" mx-auto ">
             {links.map((link) => (
           <li key={link.to} className="max-w-fit my-2  ">
 
             <NavLink
               to={link.to}
+              onClick={()=>setMenuClose(true)}
               className={({ isActive }) =>
-                ` text-2xl flex gap-1 rounded-xl p-2 items-center transition-all duration-450  ${isActive ? "text-white bg-activeNavlinkColor " : "hover:bg-navHoverColor"}`
+                ` text-sm font-medium flex gap-1 rounded-xl p-2 items-center transition-all duration-450  ${isActive ? "text-white bg-activeNavlinkColor " : "hover:bg-navHoverColor"}`
               }
             >
 
@@ -83,7 +84,7 @@ const Navbar = () => {
             <NavLink
               to={link.to}
               className={({ isActive }) =>
-                `  flex gap-1 rounded-xl px-1 py-2 items-center transition-all duration-450  ${isActive ? "text-white bg-activeNavlinkColor " : "hover:bg-navHoverColor"}`
+                ` font-medium  flex gap-1 rounded-xl px-1 py-2 items-center transition-all duration-450  ${isActive ? "text-white bg-activeNavlinkColor " : "hover:bg-navHoverColor"}`
               }
             >
 
@@ -97,24 +98,23 @@ const Navbar = () => {
       </ul>
 
 {/* theme and language toggle */}
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4">
             {/* theme toggle */}
             <div 
-            className=" cursor-pointer border border-slate-400 p-1 rounded-xl hover:shadow-[0px_0px_6px_1px_#0E6B4F] max-w-fit text-3xl transition-all duration-500 "
+            className=" cursor-pointer border border-slate-400 p-1 rounded-xl hover:shadow-[0px_0px_6px_1px_#0E6B4F] max-w-fit size-9 text-2xl transition-all duration-500 "
             onClick={()=>setIsLight(prev=>!prev)}>
                 {isLight? <MdDarkMode /> : <MdLightMode />}
             </div>
 
             {/* language toggle */}
             <div 
-            className="cursor-pointer border border-slate-400 p-1 rounded-xl max-w-fit text-2xl font-bold  hover:shadow-[0px_0px_6px_1px_#0E6B4F] transition-all duration-500"
+            className="cursor-pointer border border-slate-400 p-1 rounded-xl max-w-fit text-xl size-9 text font-bold  hover:shadow-[0px_0px_6px_1px_#0E6B4F] transition-all duration-500"
             onClick={()=>setIsEn(prev=>!prev)}>
                 {isEn? "BN" : "EN"}
             </div>
         </div>
 
-{/* hamburger menu */}
-
+{/* hamburger menu toggle */}
 <div className="md:hidden text-3xl ml-2 "
 onClick={()=>setMenuClose(prev=>!prev)}>
     {menuClose? <ImMenu />: <GrClose />}
