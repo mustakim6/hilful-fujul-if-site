@@ -1,9 +1,10 @@
 import React from 'react';
+import AskQuestion from './sectionsofeducation/AskQuestion';
 
 const Education = () => {
     return (
         <div>
-            education page
+            <AskQuestion></AskQuestion>
         </div>
     );
 };

@@ -51,7 +51,7 @@ const Navbar = () => {
    </div>
 
 {/* navlinks  for mobile device*/}
-      <ul className={`absolute ${menuClose? '-top-400': 'top-16 right-[30%] transition-all duration-700 ' }    bg-[#F4F9F7] rounded-md w-60 flex shadow-2xl `}>
+      <ul className={`absolute z-40 ${menuClose? '-top-400': 'top-16 right-[30%] transition-all duration-700 ' }    bg-[#F4F9F7] rounded-md w-60 flex shadow-2xl `}>
 
         <div className=" mx-auto ">
             {links.map((link) => (

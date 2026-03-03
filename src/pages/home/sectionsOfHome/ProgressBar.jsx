@@ -7,7 +7,7 @@ const ProgressBar = () => {
     let totalAmount = 60000;
     let collectionsPercentage = totalAmount > 0 ? Math.min((collectedAmount / totalAmount) * 100, 100) : 0 ;
     let percentage = Number(collectionsPercentage.toFixed(1));
-    console.log(collectionsPercentage);
+    
 
 
     return (

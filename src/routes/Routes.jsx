@@ -28,6 +28,7 @@ const routers = [
         {
             path: '/education' ,
             element: <Education></Education>,
+            
         },
         {
             path: '/members' ,
@@ -41,6 +42,8 @@ const routers = [
             path: '/contactus' ,
             element: <ContactUs></ContactUs>,
         },
+        
+
     ]
 },
 // main layout routing end here
